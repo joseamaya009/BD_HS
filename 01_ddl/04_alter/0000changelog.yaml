@@ -538,3 +538,21 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: true
             stripComments: false
+
+  - changeSet:
+      id: 20261031-device-measurement-state
+      author: HidroSmart
+      labels: "ddl,alter,device,iot,measurement"
+      comment: "Adds the device measurement state read by the backend and MQTT status handler."
+      changes:
+        - sqlFile:
+            path: 034_device_measurement_state.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/04_alter/034_device_measurement_state.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
