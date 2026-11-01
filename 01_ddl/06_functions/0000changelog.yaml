@@ -1119,3 +1119,21 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: true
             stripComments: false
+
+  - changeSet:
+      id: 20261031-device-measurement-state-function
+      author: HidroSmart
+      labels: "ddl,function,device,iot,measurement"
+      comment: "Persists the measurement state reported by an ESP32 over MQTT."
+      changes:
+        - sqlFile:
+            path: 068_fn_record_device_measurement_state.sql
+            relativeToChangelogFile: true
+            splitStatements: false
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/06_functions/068_fn_record_device_measurement_state.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
