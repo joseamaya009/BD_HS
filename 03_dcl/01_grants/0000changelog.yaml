@@ -1005,3 +1005,21 @@ databaseChangeLog:
             relativeToChangelogFile: true
             splitStatements: true
             stripComments: false
+
+  - changeSet:
+      id: 20261031-device-measurement-state-grant
+      author: HidroSmart
+      labels: "dcl,grants,device,iot,measurement,security"
+      comment: "Allows the application role to persist ESP32 measurement state reports."
+      changes:
+        - sqlFile:
+            path: 057_device_measurement_state.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/03_dcl/01_grants/057_device_measurement_state.rollback.sql
+            relativeToChangelogFile: true
+            splitStatements: true
+            stripComments: false
